@@ -16,12 +16,10 @@ ssh::server::accept_env:
   - 'LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES'
   - 'LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT'
   - 'LC_IDENTIFICATION LC_ALL'
-
 ssh::server::authorized_keys_file:
   - '.ssh/authorized_keys'
 ssh::server::client_alive_interval: 180
 ssh::server::include: '/etc/ssh/sshd_config.d/*.conf /usr/etc/ssh/sshd_config.d/*.conf'
-ssh::server::permit_root_login: 'yes'
 ssh::server::print_motd: 'no'
 ssh::server::subsystem: 'sftp /usr/lib/ssh/sftp-server'
 ssh::server::use_pam: 'yes'
