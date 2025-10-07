@@ -135,7 +135,7 @@ describe 'ssh::server' do
   end
 
   ['SLED', 'SLES'].each do |name|
-    ['10', '11', '12'].each do |major|
+    ['10', '11', '12', '15'].each do |major|
       context "on #{name} #{major} with i386 architecture path for sftp subsystem is /usr/lib/ssh/sftp-server" do
         let(:facts) do
           {

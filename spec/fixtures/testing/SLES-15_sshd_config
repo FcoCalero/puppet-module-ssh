@@ -1,0 +1,15 @@
+# This file is being maintained by Puppet.
+# DO NOT EDIT
+#
+# See https://man.openbsd.org/sshd_config for more info
+
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL
+AuthorizedKeysFile .ssh/authorized_keys
+ClientAliveInterval 180
+PermitRootLogin yes
+PrintMotd no
+Subsystem sftp /usr/lib/ssh/sftp-server
+UsePAM yes
+X11Forwarding yes
