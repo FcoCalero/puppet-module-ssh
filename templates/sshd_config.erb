@@ -4,7 +4,9 @@
 # See https://man.openbsd.org/sshd_config for more info
 
 <% if @include != nil -%>
-Include <%= @include %>
+<%   Array(@include).each do |v| -%>
+Include <%= v %>
+<%   end -%>
 <% end -%>
 <% if @accept_env != nil -%>
 <%   @accept_env.each do |v| -%>

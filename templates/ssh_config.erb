@@ -146,7 +146,9 @@ Host <%= @host %>
   IgnoreUnknown <%= @ignore_unknown.join(',') %>
 <% end -%>
 <% if @include != nil -%>
-  Include <%= @include %>
+<%   Array(@include).each do |v| -%>
+  Include <%= v %>
+<%   end -%>
 <% end -%>
 <% if @ip_qos != nil -%>
   IPQoS <%= @ip_qos %>

@@ -542,7 +542,7 @@ class ssh (
   Optional[String[1]] $identity_agent = undef,
   Optional[Array[String[1]]] $identity_file = undef,
   Optional[Array[String[1]]] $ignore_unknown = undef,
-  Optional[Stdlib::Absolutepath] $include = undef,
+  Optional[Variant[Stdlib::Absolutepath, Array[Stdlib::Absolutepath]]] $include = undef,
   String[1] $include_dir_owner = 'root',
   String[1] $include_dir_group = 'root',
   Stdlib::Filemode $include_dir_mode = '0755',
@@ -622,17 +622,27 @@ class ssh (
   }
 
   if $include {
-    $include_dir = dirname($include)
-    file { 'ssh_config_include_dir':
-      ensure  => 'directory',
-      path    => $include_dir,
-      owner   => $include_dir_owner,
-      group   => $include_dir_group,
-      mode    => $include_dir_mode,
-      purge   => $include_dir_purge,
-      recurse => $include_dir_purge,
-      force   => $include_dir_purge,
-      require => $packages_require,
+    case $include {
+      String: {
+        $include_dir = dirname($include)
+        file { 'ssh_config_include_dir':
+          ensure  => 'directory',
+          path    => $include_dir,
+          owner   => $include_dir_owner,
+          group   => $include_dir_group,
+          mode    => $include_dir_mode,
+          purge   => $include_dir_purge,
+          recurse => $include_dir_purge,
+          force   => $include_dir_purge,
+          require => $packages_require,
+        }
+      }
+      Array: {
+        $include_dir = undef
+      }
+      default: {
+        $include_dir = undef
+      }
     }
   } else {
     $include_dir = undef
