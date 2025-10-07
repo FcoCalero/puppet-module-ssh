@@ -3,6 +3,7 @@
 #
 # See https://man.openbsd.org/sshd_config for more info
 
+Include /etc/ssh/sshd_config.d/*.conf /usr/etc/ssh/sshd_config.d/*.conf
 AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
 AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
 AcceptEnv LC_IDENTIFICATION LC_ALL

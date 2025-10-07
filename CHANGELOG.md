@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [Unreleased]
+
+### Added
+
+- Align the SLES 15 SSH defaults and fixtures with the vendor-provided configuration templates.
+- Document SLES 10–15 among the supported platforms.
+
 ## [v5.1.1](https://github.com/ghoneycutt/puppet-module-ssh/tree/v5.1.1) (2024-12-30)
 
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-ssh/compare/v5.1.0...v5.1.1)
