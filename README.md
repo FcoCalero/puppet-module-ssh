@@ -36,6 +36,10 @@ known to work on many, many platforms since its creation in 2010.
  * EL 7
  * EL 8
  * EL 9
+ * SLES 10
+ * SLES 11
+ * SLES 12
+ * SLES 15
  * Ubuntu 18.04 LTS
  * Ubuntu 20.04 LTS
  * Ubuntu 22.04 LTS

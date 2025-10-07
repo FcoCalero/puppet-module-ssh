@@ -621,18 +621,28 @@ class ssh::server (
   }
 
   if $include {
-    $include_dir = dirname($include)
-    file { 'sshd_config_include_dir':
-      ensure  => 'directory',
-      path    => $include_dir,
-      owner   => $include_dir_owner,
-      group   => $include_dir_group,
-      mode    => $include_dir_mode,
-      purge   => $include_dir_purge,
-      recurse => $include_dir_purge,
-      force   => $include_dir_purge,
-      require => $packages_require,
-      notify  => $notify_service,
+    case $include {
+      String: {
+        $include_dir = dirname($include)
+        file { 'sshd_config_include_dir':
+          ensure  => 'directory',
+          path    => $include_dir,
+          owner   => $include_dir_owner,
+          group   => $include_dir_group,
+          mode    => $include_dir_mode,
+          purge   => $include_dir_purge,
+          recurse => $include_dir_purge,
+          force   => $include_dir_purge,
+          require => $packages_require,
+          notify  => $notify_service,
+        }
+      }
+      Array: {
+        $include_dir = undef
+      }
+      default: {
+        $include_dir = undef
+      }
     }
   } else {
     $include_dir = undef
