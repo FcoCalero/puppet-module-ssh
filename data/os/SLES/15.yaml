@@ -5,6 +5,7 @@ ssh::host: '*'
 ssh::include:
   - '/etc/ssh/ssh_config.d/*.conf'
   - '/usr/etc/ssh/ssh_config.d/*.conf'
+
 ssh::packages:
   - 'openssh'
 # SLES 15 groups the locale SendEnv directives across three lines.
