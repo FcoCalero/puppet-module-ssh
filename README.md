@@ -15,6 +15,7 @@ Host entries in a personal `~/.ssh/config` file.
 
 ### Table of Contents
 1. [Compatibility](#compatibility)
+   1. [SUSE Linux Enterprise Server (SLES) notes](#suse-linux-enterprise-server-sles-notes)
 1. [Parameters](#parameters)
 1. [Examples](#sample-usage)
 
@@ -45,6 +46,19 @@ for the exact matrix of supported Puppet and ruby versions.
  * Solaris 9
  * Solaris 10
  * Solaris 11
+
+### SUSE Linux Enterprise Server (SLES) notes
+
+SLES 15 updates the location of the SFTP subsystem binary to
+`/usr/lib/ssh/sftp-server` on x86_64 nodes, whereas earlier releases use
+`/usr/lib64/ssh/sftp-server`. The module automatically manages this
+difference when `ssh::sshd_config_subsystem_sftp` is left at its default
+value, but administrators overriding the parameter should ensure they use
+the correct path for their SLES release.
+
+`ServerKeyBits` also follows the upstream OpenSSH defaults on SLES 15. If
+your environment requires explicitly configuring this value, set the
+`ssh::sshd_config_serverkeybits` parameter as appropriate.
 
 If you use the Sun Solaris SSH, please keep in mind that not all parameters can be used.
 
