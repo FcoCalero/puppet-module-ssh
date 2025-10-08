@@ -10,6 +10,8 @@ describe 'Facter::Util::Fact' do
     'Sun_SSH_1.1, SSH protocols 1.5/2.0, OpenSSL 0x0090700f' =>     { ssh_version: 'Sun_SSH_1.1',     ssh_version_numeric: '1.1' },   # Solaris 9 SPARC
     'Sun_SSH_1.1.5, SSH protocols 1.5/2.0, OpenSSL 0x0090704f' =>   { ssh_version: 'Sun_SSH_1.1.5',   ssh_version_numeric: '1.1.5' }, # Solaris 10 SPARC
     "linebreak\nOpenSSH_8.0p1, OpenSSL 1.1.1c FIPS  28 May 2019" => { ssh_version: 'OpenSSH_8.0p1',   ssh_version_numeric: '8.0' },   # with extra line
+    "banner\nnotice\nOpenSSH_9.6p1 Ubuntu-3ubuntu13.13, OpenSSL 3.0.13 30 Jan 2024" => { ssh_version: 'OpenSSH_9.6p1',   ssh_version_numeric: '9.6' },
+    "warning\nOpenSSH_for_Windows_9.2p1, LibreSSL 3.0.2" =>                            { ssh_version: 'OpenSSH_for_Windows_9.2p1', ssh_version_numeric: '9.2' },
     'broken string' =>                                              { ssh_version: nil,               ssh_version_numeric: nil },
   }
 
