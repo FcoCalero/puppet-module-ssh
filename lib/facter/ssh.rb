@@ -3,7 +3,7 @@ Facter.add('ssh_version') do
     next unless Facter::Util::Resolution.which('ssh')
 
     version_output = Facter::Util::Resolution.exec('ssh -V 2>&1')
-    match = version_output&.match(%r{[A-Za-z0-9._]+SSH[A-Za-z0-9._]+})
+    match = version_output&.match(%r{[A-Za-z0-9._+-]*SSH[A-Za-z0-9._+-]*})
     match[0] if match
   end
 end
